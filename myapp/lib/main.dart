@@ -1,64 +1,126 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: MyWidget(),
-    );
-  }
-}
+        title: 'App 1',
+        home: Scaffold(
+            backgroundColor: Color.fromARGB(255, 247, 246, 240),
+            appBar: AppBar(
+              title: Text('Day 1'),
+              leading: Icon(Icons.home),
+            ),
+            body:Column(
+              children: [
+                 Text(
+                  "Hello!!!",
+                  style: TextStyle(
+                      color: Colors.amber,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                      fontStyle: FontStyle.italic,
+                      backgroundColor: Colors.black26),
+                ),
+                Center(
+                 child: TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        labelText: 'Name',
+                        hintText: 'Enter your name'),
+                  ),
+                ),
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+                 Center(
+                 child: TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        labelText: 'Last Name',
+                        hintText: 'Enter your Last name'),
+                  ),
+                )
 
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
+              ],
+            )
 
-class _MyWidgetState extends State<MyWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-      children: [
-        Container(
-          height: 100,
-          width: 100,
-          color: Color.fromARGB(255, 234, 128, 7),
-          child: const Text(
-            "Hello",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Container(
-          height: 100,
-          width: 100,
-          color: Color.fromARGB(255, 13, 244, 25),
-          child: const Text(
-            "Hello",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ),
-        //C:\Users\Lenovo\AppData\Local\Android\Sdk
-      ],
-    ));
+            //Column and Row
+            // Column(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   crossAxisAlignment: CrossAxisAlignment.center,
+            //   mainAxisSize: MainAxisSize.max,
+            //   children: [
+            //     Container(
+            //       height: 50,
+            //       width: 90,
+            //       margin: EdgeInsets.all(5),
+            //       child: Text('Row1'),
+            //       alignment: Alignment.center,
+            //       decoration: BoxDecoration(
+            //         border: Border.all(width: 4, color: Colors.black12),
+            //          color: Colors.orange,
+            //          borderRadius: BorderRadius.circular(50)
+            //       ),
+            //     ),
+            //      Container(
+            //       height: 50,
+            //       width: 90,
+            //       margin: EdgeInsets.all(5),
+            //       child: Text('Row2'),
+            //       alignment: Alignment.center,
+            //       decoration: BoxDecoration(
+            //           border: Border.all(width: 4, color: Colors.black12),
+            //           color: Colors.blueGrey,
+            //           borderRadius: BorderRadius.circular(50)),
+            //     ),
+            //      Container(
+            //       height: 50,
+            //       width: 90,
+            //       margin: EdgeInsets.all(5),
+            //       child: Text('Row 3'),
+            //       alignment: Alignment.center,
+            //       decoration: BoxDecoration(
+            //           border: Border.all(width: 4, color: Colors.black12),
+            //           color: Color.fromARGB(255, 255, 0, 0),
+            //           borderRadius: BorderRadius.circular(50)),
+            //     ),
+            //      Container(
+            //       height: 50,
+            //       width: 90,
+            //       margin: EdgeInsets.all(5),
+            //       child: Text('Row 4'),
+            //       alignment: Alignment.center,
+            //       decoration: BoxDecoration(
+            //           border: Border.all(width: 4, color: Colors.black12),
+            //           color: Color.fromARGB(255, 85, 0, 255),
+            //           borderRadius: BorderRadius.circular(50)),
+            //     ),
+            //   ],
+            // )
+            //Container widget and its property
+            //  Container(
+            //   //color: Colors.blueGrey,
+            //   height: 100,
+            //   width: 100,
+            //   margin: EdgeInsets.all(100),
+            //   alignment: Alignment.center,
+            //   child: Text("Container"),
+
+            //   decoration: BoxDecoration(
+            //       border: Border.all(width: 4, color: Colors.black),
+            //       color: Colors.blueGrey,
+            //       borderRadius: BorderRadius.circular(50),
+            //       boxShadow: [
+            //         BoxShadow(color: Colors.orange, offset: Offset(6.0, 6.0))
+            //       ]),
+            //   transform: Matrix4.rotationZ(0.1),
+            //   constraints: BoxConstraints.expand(height: 10.0),
+            // ),
+            ));
   }
 }
