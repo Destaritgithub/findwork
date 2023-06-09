@@ -1,126 +1,127 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
+  int level = 0;
+  List<String> names = ['Abebe', 'Kebede', 'Bekele'];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'App 1',
-        home: Scaffold(
-            backgroundColor: Color.fromARGB(255, 247, 246, 240),
-            appBar: AppBar(
-              title: Text('Day 1'),
-              leading: Icon(Icons.home),
+    return Scaffold(
+      backgroundColor: Colors.grey[400],
+      appBar: AppBar(
+        title: Text('Simple Id'),
+        backgroundColor: Colors.grey[600],
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/img1.jpg'),
+                radius: 40.0,
+              ),
             ),
-            body:Column(
+            Divider(
+              height: 90.0,
+              color: Colors.red,
+            ),
+            Text(
+              'Name',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              ' My Name',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.amberAccent[200],
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Text(
+              'Level',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              '$level',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+              ),
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Row(
               children: [
-                 Text(
-                  "Hello!!!",
+                Icon(
+                  Icons.email,
+                  color: Colors.grey[900],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'manm@gmail.com',
                   style: TextStyle(
-                      color: Colors.amber,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w300,
-                      fontStyle: FontStyle.italic,
-                      backgroundColor: Colors.black26),
-                ),
-                Center(
-                 child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        labelText: 'Name',
-                        hintText: 'Enter your name'),
-                  ),
-                ),
-
-                 Center(
-                 child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        labelText: 'Last Name',
-                        hintText: 'Enter your Last name'),
+                    color: Colors.red,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w100,
                   ),
                 )
-
               ],
+            ),
+            Column(
+              children: names.map((e) => Text(e)).toList()
             )
-
-            //Column and Row
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-            //   mainAxisSize: MainAxisSize.max,
-            //   children: [
-            //     Container(
-            //       height: 50,
-            //       width: 90,
-            //       margin: EdgeInsets.all(5),
-            //       child: Text('Row1'),
-            //       alignment: Alignment.center,
-            //       decoration: BoxDecoration(
-            //         border: Border.all(width: 4, color: Colors.black12),
-            //          color: Colors.orange,
-            //          borderRadius: BorderRadius.circular(50)
-            //       ),
-            //     ),
-            //      Container(
-            //       height: 50,
-            //       width: 90,
-            //       margin: EdgeInsets.all(5),
-            //       child: Text('Row2'),
-            //       alignment: Alignment.center,
-            //       decoration: BoxDecoration(
-            //           border: Border.all(width: 4, color: Colors.black12),
-            //           color: Colors.blueGrey,
-            //           borderRadius: BorderRadius.circular(50)),
-            //     ),
-            //      Container(
-            //       height: 50,
-            //       width: 90,
-            //       margin: EdgeInsets.all(5),
-            //       child: Text('Row 3'),
-            //       alignment: Alignment.center,
-            //       decoration: BoxDecoration(
-            //           border: Border.all(width: 4, color: Colors.black12),
-            //           color: Color.fromARGB(255, 255, 0, 0),
-            //           borderRadius: BorderRadius.circular(50)),
-            //     ),
-            //      Container(
-            //       height: 50,
-            //       width: 90,
-            //       margin: EdgeInsets.all(5),
-            //       child: Text('Row 4'),
-            //       alignment: Alignment.center,
-            //       decoration: BoxDecoration(
-            //           border: Border.all(width: 4, color: Colors.black12),
-            //           color: Color.fromARGB(255, 85, 0, 255),
-            //           borderRadius: BorderRadius.circular(50)),
-            //     ),
-            //   ],
-            // )
-            //Container widget and its property
-            //  Container(
-            //   //color: Colors.blueGrey,
-            //   height: 100,
-            //   width: 100,
-            //   margin: EdgeInsets.all(100),
-            //   alignment: Alignment.center,
-            //   child: Text("Container"),
-
-            //   decoration: BoxDecoration(
-            //       border: Border.all(width: 4, color: Colors.black),
-            //       color: Colors.blueGrey,
-            //       borderRadius: BorderRadius.circular(50),
-            //       boxShadow: [
-            //         BoxShadow(color: Colors.orange, offset: Offset(6.0, 6.0))
-            //       ]),
-            //   transform: Matrix4.rotationZ(0.1),
-            //   constraints: BoxConstraints.expand(height: 10.0),
-            // ),
-            ));
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            level += 100;
+          });
+        },
+        child: Text('Click'),
+        backgroundColor: Colors.red[600],
+      ),
+    );
   }
 }
